@@ -1,0 +1,25 @@
+{% load bootstrap4 %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Django | About</title>
+        {% bootstrap_css %}
+        {% bootstrap_javascript jquery=True %}
+    </head>
+    <body>
+        <div class="container mt-4">
+            <h1>О блоге</h1>
+            <p>Эксперименты с Django на Хекслете</p>
+            <!-- BEGIN -->
+            {% for member in team %}
+                <h3>{{ member.name }}</h3>
+                <p>{{ member.position }}</p>
+            {% endfor %}
+            <!-- END -->
+        </div>
+    </body>
+</html>
